@@ -1,0 +1,27 @@
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Untuk mengatur posisi horizontal */
+  align-items: center; /* Untuk mengatur posisi vertikal */
+}
+
+.text {
+  width: 100%;
+  max-width: 500px; /* Atur lebar maksimum */
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.image {
+  width: 100%;
+  /* height: auto; */
+  max-width: 500px; /* Atur lebar maksimum */
+  text-align: center; /* Untuk mengatur posisi gambar di tengah */
+}
+
+.image iframe {
+  border-radius: 5px;
+  max-width: 100%;
+  /* height: 100%; Agar gambar tetap proporsional */
+  object-fit: cover;
+}

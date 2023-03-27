@@ -1,0 +1,94 @@
+.nav-area:after {
+  content: '';
+  clear: both;
+  display: block;
+}
+
+.nav-area ul {
+  list-style: none;
+  margin: 0;
+  font-family: Helvetica;
+}
+
+.nav-area>ul>li {
+  float: left;
+  position: relative;
+}
+.nav-area ul li a{
+  position:relative;
+}
+
+.nav-area .dropdown:hover .dropdown-content {
+  display: block;
+  position: absolute;
+  right: 160px;
+  top: 100%;
+  width: 100%;
+}
+
+.nav-area .dropdown-content {
+  display: none;
+  position: absolute;
+  color: black;
+  padding-top: 5px;
+  text-decoration: none;
+  /* text-align: center; */
+  min-width: 160px;
+  z-index: 1;
+}
+
+.nav-area .dropdown-content li{
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+.nav-area .dropdown-content li a{
+  color: black;
+  padding-top: 5px;
+  text-decoration: none;
+  /* text-align: center; */
+  display: block;
+}
+/* .nav-area>ul ul li a {
+  color: black;
+  padding-top: 5px;
+  text-decoration: none;
+  text-align: center;
+  display: block;
+}
+
+.nav-area ul ul li {
+  position: relative;
+} */
+.nav-area ul li:hover {
+  /* outline-color: #069111; */
+  border-radius: 5px;
+  outline: solid;
+}
+
+.nav-area ul ul {
+  position: absolute;
+  padding: 0;
+  display: none;
+  top: 100%;
+  left: 0;
+}
+
+.nav-area ul li:hover>ul {
+  display: block;
+}
+
+/* .nav-area ul ul li a:hover {
+  background: #05a82e;
+} */
+
+
+.nav-area ul ul ul {
+  top: 0;
+  left: 100%;
+}
+
+.nav-area ul ul ul li:hover a {
+  background: #34495e;
+}

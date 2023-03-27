@@ -1,0 +1,38 @@
+body {
+  background-image: url("../images/BackgroungHome.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  animation: change 25s 10s 3 ease-in-out;
+}
+
+@keyframes change {
+  0% {
+    background-image: url("../images/BackgroungHome.jpg");
+  }
+
+  40% {
+    background-image: url("../images/BG2.jpg");
+  }
+
+  60% {
+    background-image: url("../images/BG3.jpg");
+  }
+
+  80% {
+    background-image: url("../images/BG4.jpg");
+  }
+
+  100% {
+    background-image: url("../images/BG5.jpg");
+  }
+}
+
+main {
+	background-color: rgba(173, 250, 174, 0.9);
+	border-radius: 15px;
+	padding: 20px;
+	color: black;
+	/* mengubah warna font menjadi putih */
+	font-size: 25px;
+	/* memperbesar ukuran teks */
+}
