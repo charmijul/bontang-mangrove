@@ -5,8 +5,8 @@
 
     <main>
         <article class="mb-5">
-            <h2>{{ $post['title'] }}</h2>
-            <p>{{ $post['description'] }}</p>
+            <h2>{{ $post->title }}</h2>
+            {!! $post->body !!}
         </article>
 
         <a href="/event">Kembali</a>

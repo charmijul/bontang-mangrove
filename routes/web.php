@@ -41,6 +41,6 @@ Route::get('/ticket', [TicketController::class, 'index']);
 
 Route::get('/event', [EventController::class, 'index']);
 
-Route::get('/event/{slug}', [EventController::class, 'show']);
+Route::get('/event/{post:slug}', [EventController::class, 'show']);
 
 Route::get('/data-mangrove', [MangroveController::class, 'index']);

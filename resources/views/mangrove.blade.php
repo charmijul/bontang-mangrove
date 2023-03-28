@@ -15,10 +15,10 @@
                             <h2>{{ $mangrove->name }}</h2>
                             <ul>
                                 <li>Nama Latin: {{ $mangrove->scientifik_name }}</li>
+                                <li>Uraian: {{ $mangrove->description }}</li>
+                                <li>Manfaat: {{ $mangrove->benefit }}</li>
                                 <a href="#detail-{{ $mangrove->id }}" class="btn btn-sm btn-info stretched-link"
                                     data-fancybox="mangrove-detail">Detail</a>
-                                {{-- <li>Uraian: {{ $mangrove->description }}</li>
-                                <li>Manfaat: {{ $mangrove->benefit }}</li> --}}
                             </ul>
                         </div>
                     </div>

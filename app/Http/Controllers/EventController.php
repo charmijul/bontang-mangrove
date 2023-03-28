@@ -11,14 +11,14 @@ class EventController extends Controller
         // $event = collect(Event::$event_posts);
         return view('event', [
             "title" => "Event",
-            "events" => Event::all()
+            "events" => Event::latest()->get()
         ]);
     }
 
-    public function show($slug){
+    public function show(Event $post){
         return view('post', [
             "title" => "Single Post",
-            "post" => Event::find($slug)
+            "post" => $post
         ]);
     }
 }
