@@ -8,10 +8,16 @@ use Illuminate\Http\Request;
 class EventController extends Controller
 {
     public function index(){
-        // $event = collect(Event::$event_posts);
+        $events = Event::latest();
+
+        if(request('search')){
+            $events->where('title', 'like', '%' . request('search') . '%')
+                    ->orWhere('body', 'like', '%' . request('search') . '%');
+        }
+
         return view('event', [
             "title" => "Event",
-            "events" => Event::latest()->get()
+            "events" => $events->paginate(10)
         ]);
     }
 

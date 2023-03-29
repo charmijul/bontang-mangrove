@@ -28,11 +28,13 @@ body {
 }
 
 main {
+  min-width: 100%;
+  min-height: 390px;
 	background-color: rgba(173, 250, 174, 0.9);
 	border-radius: 15px;
 	padding: 20px;
 	color: black;
 	/* mengubah warna font menjadi putih */
-	font-size: 25px;
+	/* font-size: 25px; */
 	/* memperbesar ukuran teks */
 }

@@ -1,24 +1,64 @@
-.nav-area:after {
+/* .nav-area:after {
   content: '';
   clear: both;
   display: block;
+} */
+.nav-area {
+  width: 100%;
+  margin: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .nav-area ul {
   list-style: none;
-  margin: 0;
+  /* margin: 0; */
   font-family: Helvetica;
 }
 
-.nav-area>ul>li {
+.nav-area ul li:hover {
+  /* outline-color: #069111; */
+  border-radius: 5px;
+  outline: solid;
+}
+
+.navbar-nav .dropdown-menu{
+  background: transparent;
+  list-style: none;
+  /* margin: 0; */
+  font-family: Helvetica;
+}
+.navbar-nav .dropdown-menu li a{
+  background: transparent;
+  list-style: none;
+  /* margin: 0; */
+  font-family: Helvetica;
+}
+.navbar-nav .dropdown-menu li button{
+  background: transparent;
+  list-style: none;
+  /* margin: 0; */
+  font-family: Helvetica;
+}
+.navbar-nav .dropdown-menu li a:hover{
+  border-radius: 5px;
+  outline: solid;
+}
+.navbar-nav .dropdown-menu li button:hover{
+  border-radius: 5px;
+  outline: solid;
+}
+
+/* .nav-area>ul>li {
   float: left;
   position: relative;
 }
 .nav-area ul li a{
   position:relative;
-}
+} */
 
-.nav-area .dropdown:hover .dropdown-content {
+/* .nav-area .dropdown:hover .dropdown-content {
   display: block;
   position: absolute;
   right: 160px;
@@ -32,7 +72,6 @@
   color: black;
   padding-top: 5px;
   text-decoration: none;
-  /* text-align: center; */
   min-width: 160px;
   z-index: 1;
 }
@@ -47,9 +86,8 @@
   color: black;
   padding-top: 5px;
   text-decoration: none;
-  /* text-align: center; */
   display: block;
-}
+} */
 /* .nav-area>ul ul li a {
   color: black;
   padding-top: 5px;
@@ -61,34 +99,29 @@
 .nav-area ul ul li {
   position: relative;
 } */
-.nav-area ul li:hover {
-  /* outline-color: #069111; */
-  border-radius: 5px;
-  outline: solid;
-}
 
-.nav-area ul ul {
+/* .nav-area ul ul {
   position: absolute;
   padding: 0;
   display: none;
   top: 100%;
   left: 0;
-}
+} */
 
-.nav-area ul li:hover>ul {
+/* .nav-area ul li:hover>ul {
   display: block;
-}
+} */
 
 /* .nav-area ul ul li a:hover {
   background: #05a82e;
 } */
 
 
-.nav-area ul ul ul {
+/* .nav-area ul ul ul {
   top: 0;
   left: 100%;
 }
 
 .nav-area ul ul ul li:hover a {
   background: #34495e;
-}
+} */
