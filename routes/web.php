@@ -7,7 +7,8 @@ use App\Http\Controllers\TicketController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\MangroveController;
 use App\Http\Controllers\RegisterController;
-use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\DashboardMangroveController;
+use App\Http\Controllers\DashboardEventController;
 
 /*
 |--------------------------------------------------------------------------
@@ -50,10 +51,24 @@ Route::get('/event/{post:slug}', [EventController::class, 'show']);
 Route::get('/data-mangrove', [MangroveController::class, 'index']);
 
 Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
+
 Route::post('/login', [LoginController::class, 'authenticate']);
 Route::post('/logout', [LoginController::class, 'logout']);
 
 Route::get('/register', [RegisterController::class, 'index'])->middleware('auth');
 Route::post('/register', [RegisterController::class, 'store']);
 
-Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth');
+Route::get('/dashboard', function () {
+    return view('dashboard.index', [
+        "title" => "Dashboard"
+    ]);
+})->middleware('auth');
+
+Route::resource('/dashboard/mangrove', DashboardMangroveController::class)->parameters(['data_mangrove' => 'mangrove'])->middleware('auth');
+
+// Route::group(['middleware'=>'auth'],function(){
+//     Route::resource('/dashboard/data-mangrove',DashboardMangroveController::class)->except(['show']);
+//     Route::get('/dashboard/data-mangrove/{id}',[DashboardMangroveController::class,"show"])->middleware("auth");
+// });
+Route::get('/dashboard/event/checkSlug', [DashboardEventController::class, 'checkSlug'])->middleware('auth');
+Route::resource('/dashboard/event', DashboardEventController::class)->middleware('auth');

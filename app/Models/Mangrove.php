@@ -10,4 +10,9 @@ class Mangrove extends Model
     use HasFactory;
 
     protected $guarded = ['id'];
+
+    // public function getRouteKey()
+    // {
+    //  return 'id';   
+    // }
 }

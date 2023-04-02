@@ -6,6 +6,7 @@
     <main>
         <article class="mb-5">
             <h2>{{ $post->title }}</h2>
+            <img src="{{ asset('storage/' . $post->image) }}" alt="Event ">
             {!! $post->body !!}
         </article>
 

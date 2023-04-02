@@ -29,7 +29,8 @@ body {
 
 main {
   min-width: 100%;
-  min-height: 390px;
+  min-height: cover;
+  /* min-height: 390px; */
 	background-color: rgba(173, 250, 174, 0.9);
 	border-radius: 15px;
 	padding: 20px;
