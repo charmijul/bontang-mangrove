@@ -13,10 +13,10 @@
             mangrove di Bontang.</p>
         <h2>Galeri</h2>
         <div class="row">
-            @foreach (scandir(public_path('images/galeri')) as $file)
+            @foreach (scandir(public_path('storage/gallery-images')) as $file)
                 @if (in_array(pathinfo($file, PATHINFO_EXTENSION), ['jpg', 'jpeg', 'png', 'gif']))
                     <div class="col">
-                        <img src="{{ asset('images/galeri/' . $file) }}" alt="gambar" class="img-thumbnail" data-toggle="modal" data-target="#gambarModal">
+                        <img src="{{ asset('storage/gallery-images/' . $file) }}" alt="gambar" class="img-thumbnail" data-toggle="modal" data-target="#gambarModal">
                     </div>
                 @endif
             @endforeach

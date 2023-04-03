@@ -3,7 +3,7 @@
 @section('container')
     {{-- <link rel="stylesheet" href="{{ asset('css/login-style.css') }}"> --}}
     <main>
-        <title>Dashboard | Event</title>
+        <title>Dashboard | Mangrove</title>
 
         <!-- Custom styles for this template -->
         {{-- <link href="{{ asset('css/dashboard/event/index.css') }}" rel="stylesheet"> --}}
@@ -21,41 +21,54 @@
                 <div class="col-md-8 ms-sm-auto col-lg-10 px-md-4">
                     <div
                         class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                        <h2>Create New Event Post</h2>
+                        <h2>Create New Mangrove Data</h2>
                     </div>
                     <div class="col-lg-8">
-                        <form method="post" action="/dashboard/event" enctype="multipart/form-data">
+                        <form method="post" action="/dashboard/mangrove/{{ $mangrove->id }}" enctype="multipart/form-data">
+                            @method('put')
                             @csrf
 
-                            {{-- form title --}}
+                            {{-- form name --}}
                             <div class="mb-3">
-                                <label for="title" class="form-label">Title</label>
-                                <input type="text" class="form-control @error('title') is-invalid @enderror"
-                                    name="title" id="title" required autofocus value="{{ old('title') }}">
-                                @error('title')
+                                <label for="name" class="form-label">Nama</label>
+                                <input type="text" class="form-control @error('name') is-invalid @enderror"
+                                    name="name" id="name" required autofocus value="{{ old('name', $mangrove->name) }}">
+                                @error('name')
                                     <div class="invalid-feedback">
                                         {{ $message }}
                                     </div>
                                 @enderror
                             </div>
-                            {{-- form slug --}}
+                            {{-- form scientifik_name --}}
                             <div class="mb-3">
-                                <label for="slug" class="form-label">Slug</label>
-                                <input type="text" class="form-control @error('slug') is-invalid @enderror"
-                                    name="slug" id="slug" required value="{{ old('slug') }}" readonly>
-                                @error('slug')
+                                <label for="scientifik_name" class="form-label">Nama Saintifik</label>
+                                <input type="text" class="form-control @error('scientifik_name') is-invalid @enderror"
+                                    name="scientifik_name" id="scientifik_name" required autofocus value="{{ old('scientifik_name', $mangrove->scientifik_name) }}">
+                                @error('scientifik_name')
                                     <div class="invalid-feedback">
                                         {{ $message }}
                                     </div>
                                 @enderror
                             </div>
-                            {{-- form body --}}
+                            {{-- form description --}}
                             <div class="mb-3">
-                                <label for="body" class="form-label">Body</label>
-                                <input type="hidden" class="form-control @error('body') is-invalid @enderror"
-                                    name="body" id="body" required value="{{ old('body') }}">
-                                    <trix-editor input="body" class="bg-white"></trix-editor>
-                                @error('body')
+                                <label for="description" class="form-label">Uraian</label>
+                                <input type="hidden" class="form-control @error('description') is-invalid @enderror"
+                                    name="description" id="description" required value="{{ old('description', $mangrove->description) }}">
+                                    <trix-editor input="description" class="bg-white"></trix-editor>
+                                @error('description')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
+                            </div>
+                            {{-- form benefit --}}
+                            <div class="mb-3">
+                                <label for="benefit" class="form-label">Manfaat</label>
+                                <input type="hidden" class="form-control @error('benefit') is-invalid @enderror"
+                                    name="benefit" id="benefit" required value="{{ old('benefit', $mangrove->benefit) }}">
+                                    <trix-editor input="benefit" class="bg-white"></trix-editor>
+                                @error('benefit')
                                     <div class="invalid-feedback">
                                         {{ $message }}
                                     </div>
@@ -64,7 +77,13 @@
                             {{-- form image --}}
                             <div class="mb-3">
                                 <label for="image" class="form-label">Image</label>
-                                <img class="img-preview img-fluid mb-3 col-sm-5">
+                                @if ($mangrove->image)
+                                <input type="hidden" name="oldImage" value="{{ $mangrove->image }}">
+                                    <img src="{{ asset('storage/' . $mangrove->image) }}"
+                                        class="img-preview img-fluid mb-3 col-sm-5 d-block">
+                                @else
+                                    <img class="img-preview img-fluid mb-3 col-sm-5">
+                                @endif
                                 <input class="form-control" type="file" @error('image') is-invalid @enderror
                                     id="image" name="image" onchange="previewImage()">
                                 @error('image')
@@ -82,15 +101,6 @@
     </main>
 
     <script>
-        const title = document.querySelector('#title');
-        const slug = document.querySelector('#slug');
-
-        title.addEventListener('change', function() {
-            fetch('/dashboard/event/checkSlug?title=' + title.value)
-            .then(response => response.json())
-            .then(data => slug.value = data.slug);
-        });
-
         document.addEventListener('trix-file-accept', function(){
             e.preventDefault();
         });

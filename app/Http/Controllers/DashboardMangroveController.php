@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Mangrove;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class DashboardMangroveController extends Controller
 {
@@ -27,7 +28,9 @@ class DashboardMangroveController extends Controller
      */
     public function create()
     {
-        //
+        return view('dashboard.mangrove.create', [
+            'title' => 'New Mangrove Post'
+        ]);
     }
 
     /**
@@ -38,7 +41,22 @@ class DashboardMangroveController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // dd($request);
+        $validatedData = $request->validate([
+            'name' => 'required|max:255',
+            'scientifik_name' => 'required|max:255',
+            'description' => 'required',
+            'benefit' => 'required',
+            'image' => 'required|image|file'
+        ]);
+
+        if ($request->file('image')){
+            $validatedData['image'] = $request->file('image')->store('mangrove-images');
+        }
+        
+        Mangrove::create($validatedData);
+        
+        return redirect('/dashboard/mangrove')->with('success', 'Data Mangrove Baru Berhasil Ditambahkan');
     }
 
     /**
@@ -57,11 +75,11 @@ class DashboardMangroveController extends Controller
     // }
     public function show(Mangrove $mangrove)
     {
-    return $mangrove;
-    // return view('dashboard.mangrove.show', [
-    //     'title' => 'Single Post',
-    //     'mangrove' => $mangrove
-    // ]);
+    // return $mangrove;
+    return view('dashboard.mangrove.show', [
+        'title' => 'Single Post',
+        'mangrove' => $mangrove
+    ]);
     }
 
     /**
@@ -72,7 +90,10 @@ class DashboardMangroveController extends Controller
      */
     public function edit(Mangrove $mangrove)
     {
-        //
+        return view('dashboard.mangrove.edit', [
+            'title' => 'Edit Data Mangrove',
+            'mangrove' => $mangrove
+        ]);
     }
 
     /**
@@ -84,7 +105,26 @@ class DashboardMangroveController extends Controller
      */
     public function update(Request $request, Mangrove $mangrove)
     {
-        //
+        $rules = [
+            'name' => 'required|max:255',
+            'scientifik_name' => 'required|max:255',
+            'description' => 'required',
+            'benefit' => 'required',
+            'image' => 'image|file'
+        ];
+
+        $validatedData = $request->validate($rules);
+        
+        if ($request->file('image')){
+            if($request->oldImage){
+                Storage::delete($request->oldImage);
+            }
+            $validatedData['image'] = $request->file('image')->store('mangrove-images');
+        }
+        Mangrove::where('id', $mangrove->id)
+                    ->update($validatedData);
+        
+        return redirect('/dashboard/mangrove')->with('success', 'Data Mangrove Berhasil Diperbarui');
     }
 
     /**
@@ -95,6 +135,11 @@ class DashboardMangroveController extends Controller
      */
     public function destroy(Mangrove $mangrove)
     {
-        //
+        if($mangrove->image){
+            Storage::delete($mangrove->image);
+        }
+        Mangrove::destroy($mangrove->id);
+        
+        return redirect('/dashboard/mangrove')->with('success', 'Data Mangrove Berhasil Dihapus');
     }
 }

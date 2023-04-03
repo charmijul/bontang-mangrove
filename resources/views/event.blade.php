@@ -36,7 +36,7 @@
 
 
             <div class="container">
-                <div class="row">
+                {{-- <div class="row"> --}}
                     @foreach ($events->skip(1) as $event)
                         <div class="col-md-4">
                             <div class="card">
@@ -54,7 +54,7 @@
                             </div>
                         </div>
                     @endforeach
-                </div>
+                {{-- </div> --}}
             </div>
         @else
             <p class="text-center fs-4">No Event or Post Found</p>

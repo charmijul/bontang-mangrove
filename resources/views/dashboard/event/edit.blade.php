@@ -8,7 +8,7 @@
         <!-- Custom styles for this template -->
         {{-- <link href="{{ asset('css/dashboard/event/index.css') }}" rel="stylesheet"> --}}
         <style>
-            trix-toolbar [data-trix-button-group="file-tools"]{
+            trix-toolbar [data-trix-button-group="file-tools"] {
                 display: none;
             }
         </style>
@@ -21,17 +21,19 @@
                 <div class="col-md-8 ms-sm-auto col-lg-10 px-md-4">
                     <div
                         class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                        <h2>Create New Event Post</h2>
+                        <h2>Edit Event Post</h2>
                     </div>
                     <div class="col-lg-8">
-                        <form method="post" action="/dashboard/event" enctype="multipart/form-data">
+                        <form method="post" action="/dashboard/event/{{ $event->slug }}" enctype="multipart/form-data">
+                            @method('put')
                             @csrf
 
                             {{-- form title --}}
                             <div class="mb-3">
                                 <label for="title" class="form-label">Title</label>
                                 <input type="text" class="form-control @error('title') is-invalid @enderror"
-                                    name="title" id="title" required autofocus value="{{ old('title') }}">
+                                    name="title" id="title" required autofocus
+                                    value="{{ old('title', $event->title) }}">
                                 @error('title')
                                     <div class="invalid-feedback">
                                         {{ $message }}
@@ -42,7 +44,7 @@
                             <div class="mb-3">
                                 <label for="slug" class="form-label">Slug</label>
                                 <input type="text" class="form-control @error('slug') is-invalid @enderror"
-                                    name="slug" id="slug" required value="{{ old('slug') }}" readonly>
+                                    name="slug" id="slug" required value="{{ old('slug', $event->slug) }}" readonly>
                                 @error('slug')
                                     <div class="invalid-feedback">
                                         {{ $message }}
@@ -53,8 +55,8 @@
                             <div class="mb-3">
                                 <label for="body" class="form-label">Body</label>
                                 <input type="hidden" class="form-control @error('body') is-invalid @enderror"
-                                    name="body" id="body" required value="{{ old('body') }}">
-                                    <trix-editor input="body" class="bg-white"></trix-editor>
+                                    name="body" id="body" required value="{{ old('body', $event->body) }}">
+                                <trix-editor input="body" class="bg-white"></trix-editor>
                                 @error('body')
                                     <div class="invalid-feedback">
                                         {{ $message }}
@@ -64,7 +66,13 @@
                             {{-- form image --}}
                             <div class="mb-3">
                                 <label for="image" class="form-label">Image</label>
-                                <img class="img-preview img-fluid mb-3 col-sm-5">
+                                @if ($event->image)
+                                <input type="hidden" name="oldImage" value="{{ $event->image }}">
+                                    <img src="{{ asset('storage/' . $event->image) }}"
+                                        class="img-preview img-fluid mb-3 col-sm-5 d-block">
+                                @else
+                                    <img class="img-preview img-fluid mb-3 col-sm-5">
+                                @endif
                                 <input class="form-control" type="file" @error('image') is-invalid @enderror
                                     id="image" name="image" onchange="previewImage()">
                                 @error('image')
@@ -87,11 +95,11 @@
 
         title.addEventListener('change', function() {
             fetch('/dashboard/event/checkSlug?title=' + title.value)
-            .then(response => response.json())
-            .then(data => slug.value = data.slug);
+                .then(response => response.json())
+                .then(data => slug.value = data.slug);
         });
 
-        document.addEventListener('trix-file-accept', function(){
+        document.addEventListener('trix-file-accept', function() {
             e.preventDefault();
         });
 

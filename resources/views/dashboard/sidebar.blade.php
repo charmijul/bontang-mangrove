@@ -10,7 +10,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link {{ Request::is('dashboard/data-mangrove') ? 'active' : '' }}" href="/dashboard/data-mangrove">
+                <a class="nav-link {{ Request::is('dashboard/mangrove') ? 'active' : '' }}" href="/dashboard/mangrove">
                     <span data-feather="file"></span>
                     Data Mangrove
                 </a>

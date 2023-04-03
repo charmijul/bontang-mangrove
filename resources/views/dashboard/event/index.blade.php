@@ -20,7 +20,7 @@
                     </div>
                     <h2>Data Event</h2>
                     @if (session()->has('success'))
-                        <div class="alert alert-success col-lg-8 alert-dismissible fade show" role="alert">
+                        <div class="alert alert-success col-lg-10 alert-dismissible fade show" role="alert">
                             {{ session('success') }}
                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                         </div>
@@ -44,7 +44,7 @@
                                         <td>{{ $loop->iteration }}</td>
                                         <td>{{ $event->title }}</td>
                                         {{-- <td>{{ $event->slug }}</td> --}}
-                                        <td>{{ $event->excerpt }}</td>
+                                        <td>{!! $event->excerpt !!}</td>
                                         {{-- <td>{{ $event->body }}</td> --}}
                                         {{-- <td>{{ $event->image }}</td> --}}
                                         <td class="action">

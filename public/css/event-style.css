@@ -10,12 +10,12 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
+    align-items: stretch;
     gap: 5px;
 }
 
-.container .card {
-    flex: 1;
-    height: auto;
+.container div.card {
+    /* flex: 1; */
     background-color: rgba(255, 255, 255, 0.7);
     border-radius: 10px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);

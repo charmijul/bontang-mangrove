@@ -17,7 +17,7 @@
                         {!! $post->body !!}
                     </article>
 
-                    <a href="/dashboard/event" class="btn btn-success"><span data-feather="arrow-left"></span> Bact to Data Event</a>
+                    <a href="/dashboard/event" class="btn btn-success"><span data-feather="arrow-left"></span> Kembali ke Data Event</a>
                     <a href="/dashboard/event/{{ $post->slug }}/edit" class="btn btn-warning"><span
                             data-feather="edit"></span> Ubah</a>
                     <form action="/dashboard/event/{{ $post->slug }}" method="post" class="d-inline">

@@ -6,6 +6,7 @@ use App\Models\Event;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Cviebrock\EloquentSluggable\Services\SlugService;
+use Illuminate\Support\Facades\Storage;
 
 class DashboardEventController extends Controller
 {
@@ -46,16 +47,16 @@ class DashboardEventController extends Controller
             'title' => 'required|max:255',
             'slug' => 'required|unique:events',
             'body' => 'required',
-            'image' => 'required|file'
+            'image' => 'required|image|file'
         ]);
         $validatedData['excerpt'] = Str::limit($request->body, 255);
         if ($request->file('image')){
-            $validatedData['image'] = $request->file('image')->store('tk-images');
+            $validatedData['image'] = $request->file('image')->store('event-images');
         }
         
         Event::create($validatedData);
         
-        return redirect('/dashboard/event')->with('success', 'Post Event baru berhasil di Upload');
+        return redirect('/dashboard/event')->with('success', 'Post Event Baru Berhasil Diupload');
         
         // return $validatedData;
     }
@@ -82,7 +83,10 @@ class DashboardEventController extends Controller
      */
     public function edit(Event $event)
     {
-        //
+        return view('dashboard.event.edit', [
+            'title' => 'Edit Event Post',
+            'event' => $event
+        ]);
     }
 
     /**
@@ -94,7 +98,30 @@ class DashboardEventController extends Controller
      */
     public function update(Request $request, Event $event)
     {
-        //
+        $rules = [
+            'title' => 'required|max:255',
+            'body' => 'required',
+            'image' => 'image|file'
+        ];
+        if($request->slug != $event->slug){
+            $rules['slug'] = 'required|unique:events';
+        }
+
+        $validatedData = $request->validate($rules);
+        $validatedData['excerpt'] = Str::limit($request->body, 255);
+        
+        if ($request->file('image')){
+            if($request->oldImage){
+                Storage::delete($request->oldImage);
+            }
+            $validatedData['image'] = $request->file('image')->store('event-images');
+        }
+        Event::where('id', $event->id)
+                    ->update($validatedData);
+        
+        return redirect('/dashboard/event')->with('success', 'Post Event berhasil Diperbarui');
+        
+
     }
 
     /**
@@ -105,7 +132,13 @@ class DashboardEventController extends Controller
      */
     public function destroy(Event $event)
     {
-        //
+        if($event->image){
+            Storage::delete($event->image);
+        }
+        Event::destroy($event->id);
+        
+        return redirect('/dashboard/event')->with('success', 'Post Event Berhasil Dihapus');
+        
     }
 
     public function checkSlug(Request $request){
