@@ -1,8 +1,11 @@
 body {
   background-image: url("../images/BackgroungHome.jpg");
   background-repeat: no-repeat;
+  background-attachment: fixed;
   background-size: cover;
   animation: change 25s 10s 3 ease-in-out;
+  min-height: 450px;
+  /* justify-content: center; */
 }
 
 @keyframes change {
@@ -29,11 +32,10 @@ body {
 
 main {
   min-width: 100%;
-  min-height: cover;
-  /* min-height: 390px; */
-	background-color: rgba(173, 250, 174, 0.9);
+  min-height: 450px;
+	background-color: rgba(173, 250, 174, 0.8);
 	border-radius: 15px;
-	padding: 20px;
+	padding: 10px;
 	color: black;
 	/* mengubah warna font menjadi putih */
 	/* font-size: 25px; */

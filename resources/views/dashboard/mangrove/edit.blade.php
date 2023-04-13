@@ -21,7 +21,7 @@
                 <div class="col-md-8 ms-sm-auto col-lg-10 px-md-4">
                     <div
                         class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                        <h2>Create New Mangrove Data</h2>
+                        <h2>Edit Mangrove Data</h2>
                     </div>
                     <div class="col-lg-8">
                         <form method="post" action="/dashboard/mangrove/{{ $mangrove->id }}" enctype="multipart/form-data">

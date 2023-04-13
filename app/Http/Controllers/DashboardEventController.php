@@ -46,10 +46,10 @@ class DashboardEventController extends Controller
         $validatedData = $request->validate([
             'title' => 'required|max:255',
             'slug' => 'required|unique:events',
-            'body' => 'required',
+            'body' => 'required|min:256',
             'image' => 'required|image|file'
         ]);
-        $validatedData['excerpt'] = Str::limit($request->body, 255);
+        $validatedData['excerpt'] = Str::limit($request->body, 255, '...'.'</div>');
         if ($request->file('image')){
             $validatedData['image'] = $request->file('image')->store('event-images');
         }
@@ -100,7 +100,7 @@ class DashboardEventController extends Controller
     {
         $rules = [
             'title' => 'required|max:255',
-            'body' => 'required',
+            'body' => 'required|min:256',
             'image' => 'image|file'
         ];
         if($request->slug != $event->slug){
@@ -108,7 +108,7 @@ class DashboardEventController extends Controller
         }
 
         $validatedData = $request->validate($rules);
-        $validatedData['excerpt'] = Str::limit($request->body, 255);
+        $validatedData['excerpt'] = Str::limit($request->body, 255, '...'.'</div>');
         
         if ($request->file('image')){
             if($request->oldImage){

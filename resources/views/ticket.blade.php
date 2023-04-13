@@ -16,35 +16,27 @@
                     </ul>
                 </div>
                 <div class="card">
-                    <h2>Wahana</h2>
+                    <h2>Olahan Mangrove</h2>
                     <ul>
-                        <li>Wahana Satu: Rp 10.000,-</li>
-                        <li>Wahana Dua: Rp 15.000,-</li>
-                        <li>Wahana Tiga: Rp 20.000,-</li>
+                        <li>Amplang Mangrove: Rp.10.000,-</li>
+                        <li>Dodol Mangrove: Rp.15.000,-</li>
+                        <li>Manisan Mangrove: Rp.15.000,-</li>
+                        <li>Mangrove Ready to Drink: Rp.15.000,-</li>
+                        <li>Sirup Ovata: Rp.25.000,-</li>
                     </ul>
                 </div>
                 <div class="card">
-                    <h2>Photoshoot</h2>
+                    <h2>Bibit Mangrove</h2>
                     <ul>
-                        <li>Photoshoot Satu: Rp 25.000,-</li>
-                        <li>Photoshoot Dua: Rp 35.000,-</li>
-                    </ul>
-                </div>
-                <div class="card">
-                    <h2>Lain-lain</h2>
-                    <ul>
-                        <li>Tiket Museum: Rp 20.000,-</li>
-                        <li>Merchandise: Rp 50.000,-</li>
-                    </ul>
-                </div>
-                <div class="card">
-                    <h2>Lain-lain</h2>
-                    <ul>
-                        <li>Tiket Museum: Rp 20.000,-</li>
-                        <li>Merchandise: Rp 50.000,-</li>
+                        <li>Bibit Rhizophora apiculata: Rp. 25.000,-(25 Batang)</li>
+                        <li>Bibit Avicennia marina: Rp.45.000,-(25 Batang)</li>
                     </ul>
                 </div>
             </div>
+            <p style="color: #000000; padding: 15px;" class="">
+                <strong>Harga dapat berubah sewaktu-waktu tanpa pemberitahuan terlebih dahulu</strong><br>
+                <strong>Untuk informasi lebih lanjut &amp; pemesanan silahkan hubungi : <a href="https://wa.me/6285349591896" class="">+62-853-4959-1896 (WA)</a></strong>
+            </p>
         </section>
     </main>
 @endsection

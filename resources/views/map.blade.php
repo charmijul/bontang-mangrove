@@ -17,7 +17,7 @@
                     <br><strong>Contacts</strong>
                     <br>Phone: (021) 2903 3066 / 55<br>
                     Fax: (021) 2903 3077<br>
-                    WA: <a href="https://api.whatsapp.com/send?phone=+628111787890">08111 7878 90</a>
+                    WA: <a href="https://wa.me/6285349591896" class="">+62-853-4959-1896</a>
                 </p>
             </div>
             <div class="image">

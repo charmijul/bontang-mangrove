@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\LoginController;
@@ -58,11 +59,15 @@ Route::post('/logout', [LoginController::class, 'logout']);
 Route::get('/register', [RegisterController::class, 'index'])->middleware('auth');
 Route::post('/register', [RegisterController::class, 'store']);
 
-Route::get('/dashboard', function () {
-    return view('dashboard.index', [
-        "title" => "Dashboard"
-    ]);
-})->middleware('auth');
+// Route::get('/dashboard', function () {
+//     return view('dashboard.index-copy', [
+//         "title" => "Dashboard"
+//     ]);
+// })->middleware('auth');
+
+Route::get('/dashboard', [DashboardController::class, 'index']);
+Route::post('/dashboard', [DashboardController::class, 'store']);
+Route::post('/dashboard/{image}', [DashboardController::class, 'destroy']);
 
 Route::resource('/dashboard/mangrove', DashboardMangroveController::class)->parameters(['data_mangrove' => 'mangrove'])->middleware('auth');
 

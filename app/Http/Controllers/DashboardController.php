@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class DashboardController extends Controller
 {
@@ -36,7 +37,16 @@ class DashboardController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // dd($request);
+
+        $validatedImage = $request->validate([
+            'image' => 'required|file|image'
+        ]);
+
+        if ($request->file('image')){
+            $validatedImage['image'] = $request->file('image')->store('gallery-images');
+        }
+        return redirect('/dashboard')->with('success', 'Foto Baru Berhasil Ditambahkan ke Galeri');
     }
 
     /**
@@ -79,8 +89,11 @@ class DashboardController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($image)
     {
-        //
+        $photos = 'gallery-images/'.$image;
+        Storage::delete($photos);
+
+        return redirect('/dashboard')->with('success', 'Foto berhasil dihapus dari galeri');
     }
 }
