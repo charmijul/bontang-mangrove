@@ -28,6 +28,18 @@
                     <div class="table-responsive">
                         <table class="table table-striped table-sm">
                             <a href="/dashboard/event/create" class="btn btn-primary mb-3 mt-3">Post a New Event</a>
+
+                            <div class="row mb-3 justify-content-center" style="border-radius: 10px;">
+                                <div class="container col-md-6">
+                                    <form action="/dashboard/event" method="GET">
+                                        <div class="input-group mb-3">
+                                            <input type="text" class="form-control" placeholder="Search.." name="search"
+                                                value="{{ request('search') }}">
+                                            <button class="btn btn-outline-secondary" type="submit">Search</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
                             <thead>
                                 <tr>
                                     <th scope="col">No</th>
@@ -39,30 +51,39 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($events as $event)
-                                    <tr>
-                                        <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $event->title }}</td>
-                                        {{-- <td>{{ $event->slug }}</td> --}}
-                                        <td>{!! $event->excerpt !!}</td>
-                                        {{-- <td>{{ $event->body }}</td> --}}
-                                        {{-- <td>{{ $event->image }}</td> --}}
-                                        <td class="action">
-                                            <a href="/dashboard/event/{{ $event->slug }}" class="badge bg-info"><span
-                                                    data-feather="eye"></span></a>
-                                            <a href="/dashboard/event/{{ $event->slug }}/edit"
-                                                class="badge bg-warning"><span data-feather="edit"></span></a>
-                                            <form action="/dashboard/event/{{ $event->slug }}" method="post"
-                                                class="d-inline">
-                                                @method('delete')
-                                                @csrf
-                                                <button class="badge bg-danger border-0"
-                                                    onclick="return confirm('Hapus Data?')"><span
-                                                        data-feather="x-circle"></span></button>
-                                            </form>
-                                        </td>
-                                    </tr>
-                                @endforeach
+                                @if ($events->count())
+                                    @foreach ($events as $event)
+                                        <tr>
+                                            <td>{{ $loop->iteration }}</td>
+                                            <td>{{ $event->title }}</td>
+                                            {{-- <td>{{ $event->slug }}</td> --}}
+                                            <td>{!! $event->excerpt !!}</td>
+                                            {{-- <td>{{ $event->body }}</td> --}}
+                                            {{-- <td>{{ $event->image }}</td> --}}
+                                            <td class="action">
+                                                <a href="/dashboard/event/{{ $event->slug }}" class="badge bg-info"><span
+                                                        data-feather="eye"></span></a>
+                                                <a href="/dashboard/event/{{ $event->slug }}/edit"
+                                                    class="badge bg-warning"><span data-feather="edit"></span></a>
+                                                <form action="/dashboard/event/{{ $event->slug }}" method="post"
+                                                    class="d-inline">
+                                                    @method('delete')
+                                                    @csrf
+                                                    <button class="badge bg-danger border-0"
+                                                        onclick="return confirm('Hapus Data?')"><span
+                                                            data-feather="x-circle"></span></button>
+                                                </form>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                @else
+                                <tr>
+                                    <td colspan="4" class="text-center fs-4">No Event or Post Found</td>
+                                </tr>
+                                @endif
+                                <div class="d-flex justify-content-center">
+                                    {{ $events->links() }}
+                                </div>
                             </tbody>
                         </table>
                     </div>

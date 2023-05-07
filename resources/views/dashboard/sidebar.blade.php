@@ -21,6 +21,12 @@
                     Data Event
                 </a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/register">
+                    <span data-feather="user-plus"></span>
+                    New Admin
+                </a>
+            </li>
         </ul>
     </div>
 </nav>

@@ -51,13 +51,13 @@
                                 Welcome, {{ auth()->user()->name }}
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <li><a class="dropdown-item" href="/dashboard"><i class="bi bi-layout-text-sidebar-reverse"></i>
-                                        My Dashboard</a></li>
+                                <li><a class="dropdown-item" href="/dashboard"><span
+                                    data-feather="file-text"></span> My Dashboard</a></li>
                                 <li>
                                     <form action="/logout" method="post">
                                         @csrf
                                         <button type="submit" class="dropdown-item">
-                                            <i class="bi bi-box-arrow-in-down-left"> Logout</i>
+                                            <span data-feather="log-out"></span> Logout
                                         </button>
                                     </form>
                                 </li>
@@ -65,8 +65,8 @@
                         </li>
                     @else
                         <li class="nav-item">
-                            <a class="nav-link {{ $title === 'Login' ? 'active' : '' }}" href="/login"><i
-                                    class="bi bi-box-arrow-in-right"></i> Login Admin</a>
+                            <a class="nav-link {{ $title === 'Login' ? 'active' : '' }}" href="/login">
+                                <span data-feather="log-in"></span> Login Admin</a>
                         </li>
                     @endauth
                 {{-- <ul class="navbar-nav ms-auto">

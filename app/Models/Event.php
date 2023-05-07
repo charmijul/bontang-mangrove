@@ -11,6 +11,15 @@ class Event extends Model
     use HasFactory, Sluggable;
 
     protected $guarded = ['id'];
+    // protected $fillable = [
+    //     'title',
+    //     'slug',
+    //     'excerpt',
+    //     'body',
+    //     'image',
+    //     'created_at',
+    //     'updated_at'
+    // ];
     public $table = 'events';
 
     public function getRouteKeyName()

@@ -54,11 +54,10 @@
                                             <img src="{{ asset('storage/gallery-images/' . $file) }}" alt="gambar"
                                                 width="100%" height="100%">
                                                 <form action="/dashboard/{{ $file }}" method="post"
-                                                    class="d-inline">
+                                                    class="justify-content-right">
                                                     @csrf
                                                     <button class="badge bg-danger border-0"
-                                                        onclick="return confirm('Hapus Data?')"><span
-                                                            data-feather="x-circle"></span></button>
+                                                        onclick="return confirm('Hapus Data?')"><span data-feather="trash-2" style="width: 35px; height: 35px;"></span></button>
                                                 </form>
                                         </div>
                                     </div>

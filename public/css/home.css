@@ -36,7 +36,7 @@ main {
 	background-color: rgba(173, 250, 174, 0.8);
 	border-radius: 15px;
 	padding: 10px;
-	color: black;
+	color: rgb(0, 0, 0);
 	/* mengubah warna font menjadi putih */
 	/* font-size: 25px; */
 	/* memperbesar ukuran teks */

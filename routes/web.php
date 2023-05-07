@@ -59,21 +59,17 @@ Route::post('/logout', [LoginController::class, 'logout']);
 Route::get('/register', [RegisterController::class, 'index'])->middleware('auth');
 Route::post('/register', [RegisterController::class, 'store']);
 
-// Route::get('/dashboard', function () {
-//     return view('dashboard.index-copy', [
-//         "title" => "Dashboard"
-//     ]);
-// })->middleware('auth');
+Route::get('/dashboard/event/checkSlug', [DashboardEventController::class, 'checkSlug'])->middleware('auth');
+Route::resource('/dashboard/event', DashboardEventController::class)->middleware('auth');
+
+Route::resource('/dashboard/mangrove', DashboardMangroveController::class)->parameters(['data_mangrove' => 'mangrove'])->middleware('auth');
 
 Route::get('/dashboard', [DashboardController::class, 'index']);
 Route::post('/dashboard', [DashboardController::class, 'store']);
 Route::post('/dashboard/{image}', [DashboardController::class, 'destroy']);
 
-Route::resource('/dashboard/mangrove', DashboardMangroveController::class)->parameters(['data_mangrove' => 'mangrove'])->middleware('auth');
 
 // Route::group(['middleware'=>'auth'],function(){
 //     Route::resource('/dashboard/data-mangrove',DashboardMangroveController::class)->except(['show']);
 //     Route::get('/dashboard/data-mangrove/{id}',[DashboardMangroveController::class,"show"])->middleware("auth");
 // });
-Route::get('/dashboard/event/checkSlug', [DashboardEventController::class, 'checkSlug'])->middleware('auth');
-Route::resource('/dashboard/event', DashboardEventController::class)->middleware('auth');

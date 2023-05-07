@@ -17,9 +17,16 @@ class DashboardEventController extends Controller
      */
     public function index()
     {
+        $events = Event::latest();
+
+        if(request('search')){
+            $events->where('title', 'like', '%' . request('search') . '%')
+                    ->orWhere('body', 'like', '%' . request('search') . '%');
+        }
+
         return view('dashboard.event.index',[
             'title' => 'Dahsboard Event',
-            'events' => Event::all()
+            'events' => $events->paginate(10)
         ]);
     }
 
@@ -43,6 +50,7 @@ class DashboardEventController extends Controller
      */
     public function store(Request $request)
     {
+        // dd($request);
         $validatedData = $request->validate([
             'title' => 'required|max:255',
             'slug' => 'required|unique:events',
