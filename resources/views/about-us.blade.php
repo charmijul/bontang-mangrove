@@ -4,7 +4,7 @@
 <link rel="stylesheet" href="css/about-style.css">
 <main>
     <h1>Tentang Kami</h1>
-    <p>Kami adalah pusat informasi hutan mangrove Bontang yang didirikan pada tahun 2020. Kami bertujuan untuk meningkatkan kesadaran masyarakat tentang pentingnya konservasi lingkungan dan membantu melestarikan hutan mangrove di Bontang.</p>
+    <p>Kami adalah pusat informasi hutan mangrove Bontang yang didirikan pada tahun 2012. Kami bertujuan untuk meningkatkan kesadaran masyarakat tentang pentingnya konservasi lingkungan dan membantu melestarikan hutan mangrove di Bontang.</p>
     <h2>Visi</h2>
     <p>Menjadi pusat informasi terkemuka tentang hutan mangrove Bontang dan konservasi lingkungan di wilayah Indonesia Timur.</p>
     <h2>Misi</h2>

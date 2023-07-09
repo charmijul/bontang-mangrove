@@ -34,7 +34,8 @@
                 </div>
             </div>
             <p style="color: #000000; padding: 15px;" class="">
-                <strong>Harga dapat berubah sewaktu-waktu tanpa pemberitahuan terlebih dahulu</strong><br>
+                <strong>Harga diambil pertanggal 01 Mei 2023.<br></strong>
+                <strong>Harga dapat berubah sewaktu-waktu tanpa pemberitahuan terlebih dahulu,</strong><br>
                 <strong>Untuk informasi lebih lanjut &amp; pemesanan silahkan hubungi : <a href="https://wa.me/6285349591896" class="">+62-853-4959-1896 (WA)</a></strong>
             </p>
         </section>

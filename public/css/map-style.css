@@ -5,6 +5,20 @@
   align-items: center; /* Untuk mengatur posisi vertikal */
 }
 
+div strong{
+  color: green;
+  font-size: 30px;
+  -webkit-text-stroke: 1px black;
+margin-bottom: 20px;
+}
+
+div p {
+  color: green;
+  font-size: 20px;
+  -webkit-text-stroke: 1px black;
+margin-bottom: 20px;
+}
+
 .text {
   width: 100%;
   max-width: 500px; /* Atur lebar maksimum */

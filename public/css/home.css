@@ -37,7 +37,20 @@ main {
 	border-radius: 15px;
 	padding: 10px;
 	color: rgb(0, 0, 0);
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
 	/* mengubah warna font menjadi putih */
 	/* font-size: 25px; */
 	/* memperbesar ukuran teks */
+}
+
+h1 {
+  font-family: Arial, Helvetica, sans-serif;
+  margin-top: 5px;
+color:rgb(100, 238, 102);
+  font-size: 50px;
+  font-weight: bold;
+  -webkit-text-stroke: 1px black;
+  text-align: center;
 }

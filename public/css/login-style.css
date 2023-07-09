@@ -1,12 +1,23 @@
-/* 
-.form-signin {
-    width: 100%;
-    max-width: 330px;
-    padding: 15px;
-    margin: auto;
-} */
 
-.form-signin form{
+.form-signin {
+    padding: 25px;
+}
+
+.row {
+    margin-left: 1%;
+    margin-top: 7.5%;
+    /* display: contents; */
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+}
+
+.row .card {
+    border-radius: 15px;
+    width: 75%;
+}
+
+.form-signin form {
     width: 100%;
 }
 .form-signin .form-floating:focus-within {

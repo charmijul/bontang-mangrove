@@ -50,6 +50,16 @@
   outline: solid;
 }
 
+.navbar-brand, .nav-link {
+  font-size: large;
+  font-weight: 600;
+  /* font-style: bold; */
+}
+.nav-link.active {
+  font-size: large;
+  font-weight: 900;
+  font-style: bold;
+}
 /* .nav-area>ul>li {
   float: left;
   position: relative;

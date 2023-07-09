@@ -4,7 +4,7 @@
     <link rel="stylesheet" href="{{ asset('css/login-style.css') }}">
     <main>
         <div class="row justify-content-center">
-            <div class="col-lg-5">
+            <div class="card">
 
                 @if (session()->has('success'))
                     <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -21,7 +21,7 @@
                 @endif
 
                 <div class="form-signin">
-                    <h1 class="h3 mb-3 fw-normal text-center">Login Form</h1>
+                    <h1 style="font-size: 35px;">Login Form</h1>
                     <form action="/login" method="post">
                         @csrf
                         <div class="form-floating">
@@ -43,7 +43,7 @@
                         <button class="w-100 btn btn-lg btn-primary" type="submit">Login</button>
                     </form>
 
-                    <small class="d-block text-center mt-3">Do Not Have Account? <a href="/register">Register Now</a></small>
+                    {{-- <small class="d-block text-center mt-3">Do Not Have Account? <a href="/register">Register Now</a></small> --}}
                 </div>
             </div>
         </div>

@@ -53,20 +53,20 @@ Route::get('/data-mangrove', [MangroveController::class, 'index']);
 
 Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
 
-Route::post('/login', [LoginController::class, 'authenticate']);
-Route::post('/logout', [LoginController::class, 'logout']);
+Route::post('/login', [LoginController::class, 'authenticate'])->middleware('guest');
+Route::post('/logout', [LoginController::class, 'logout'])->middleware('auth');
 
 Route::get('/register', [RegisterController::class, 'index'])->middleware('auth');
-Route::post('/register', [RegisterController::class, 'store']);
+Route::post('/register', [RegisterController::class, 'store'])->middleware('auth');
 
 Route::get('/dashboard/event/checkSlug', [DashboardEventController::class, 'checkSlug'])->middleware('auth');
 Route::resource('/dashboard/event', DashboardEventController::class)->middleware('auth');
 
 Route::resource('/dashboard/mangrove', DashboardMangroveController::class)->parameters(['data_mangrove' => 'mangrove'])->middleware('auth');
 
-Route::get('/dashboard', [DashboardController::class, 'index']);
-Route::post('/dashboard', [DashboardController::class, 'store']);
-Route::post('/dashboard/{image}', [DashboardController::class, 'destroy']);
+Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth');
+Route::post('/dashboard', [DashboardController::class, 'store'])->middleware('auth');
+Route::post('/dashboard/{image}', [DashboardController::class, 'destroy'])->middleware('auth');
 
 
 // Route::group(['middleware'=>'auth'],function(){

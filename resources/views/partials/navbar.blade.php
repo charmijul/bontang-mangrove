@@ -1,7 +1,7 @@
 <header>
 <nav class="navbar navbar-expand-lg navbar-light mt-2">
     <div class="container">
-        <a class="navbar-brand" href="/"><img src="{{ asset('/images/logo-cropped.png') }}" width="75px" height="75px">BMIC</a>
+        <a class="navbar-brand" href="/"><img src="{{ asset('/images/logo-2.png') }}" width="50px" height="50px"> BMIC</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -25,15 +25,6 @@
                         <a class="nav-link {{ $title === 'Data Mangrove' ? 'active' : '' }}" href="/data-mangrove"><span
                                 data-feather="list"></span> Data Mangrove</a>
                     </li>
-                    {{-- <li class="dropdown">
-                    <li><a class="nav-link {{ ($title === 'Event' or $title === 'Data-Mangrove') ? 'active' : '' }}" href=""><span
-                                data-feather="image"></span> Gallery</a>
-                        <ul class="dropdown-content">
-                            <li><a href="/event">Kegiatan</a></li>
-                            <li><a href="/data-mangrove">Data Mangrove</a></li>
-                        </ul>
-                    </li>
-                    </li> --}}
                     <li class="nav-item">
                         <a class="nav-link {{ $title === 'About' ? 'active' : '' }}" href="/about"><span
                                 data-feather="search"></span> Tentang Kami</a>

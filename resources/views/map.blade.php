@@ -5,7 +5,6 @@
 
     <main>
         <h1>Map/Lokasi</h1>
-        <p>Ini adalah halaman untuk menampilkan peta dan lokasi Bontang Mangrove Information Center.</p>
         <div class="container">
             <div class="text">
                 <p class="mbr-text">

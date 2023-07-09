@@ -4,16 +4,18 @@
     <link rel="stylesheet" href="css/home-style.css">
 
     <main>
-        <h1>Selamat Datang di Bontang Mangrove Information Center</h1>
-        <p>Kami menyediakan informasi tentang hutan mangrove Bontang dan konservasi lingkungan.</p>
-        <div class="container-logos">
-            <img src="/images/logo-2.png" alt="Bontang Mangrove">
+        <div class="card">
+            <h1>Selamat Datang di Bontang Mangrove Information Center</h1>
+            <div class="container-logos">
+                <img src="/images/logo-2.png" alt="Bontang Mangrove">
+            </div>
+            <p>Kami menyediakan informasi tentang hutan mangrove Bontang dan konservasi lingkungan.</p>
         </div>
-        <h2>Tentang Kami</h2>
-        <p>Kami adalah pusat informasi hutan mangrove Bontang yang didirikan pada tahun 2020. Kami bertujuan untuk
+        <h2>Tentang Kami :</h2>
+        <p>Kami adalah pusat informasi hutan mangrove Bontang yang didirikan pada tahun 2012. Kami bertujuan untuk
             meningkatkan kesadaran masyarakat tentang pentingnya konservasi lingkungan dan membantu melestarikan hutan
             mangrove di Bontang.</p>
-        <h2>Galeri</h2>
+        <h2>Galeri : </h2>
         <div class="row">
             @foreach (scandir(public_path('storage/gallery-images')) as $file)
                 @if (in_array(pathinfo($file, PATHINFO_EXTENSION), ['jpg', 'jpeg', 'png', 'gif', 'webp']))
